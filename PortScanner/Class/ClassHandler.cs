@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PortScanner
 {
     internal class ClassHandler
     {
-        private List<DefaultPort> DefaultPorts = new List<DefaultPort> 
+        private List<DefaultPort> DefaultPorts = new List<DefaultPort>
         {
             new DefaultPort(80, "HTTP"),
             new DefaultPort(443, "HTTPS"),
@@ -72,7 +67,7 @@ namespace PortScanner
 
             string? Input = Console.ReadLine();
 
-            if  (Input != null && Input != string.Empty)
+            if (Input != null && Input != string.Empty)
             {
                 if (Input == "default")
                 {
@@ -100,7 +95,8 @@ namespace PortScanner
                     if (!IsParsed)
                         Initialize();
                 }
-            } else
+            }
+            else
             {
                 Initialize();
             }
