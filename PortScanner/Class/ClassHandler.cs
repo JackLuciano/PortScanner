@@ -45,9 +45,12 @@ namespace PortScanner
             Initialize();
         }
 
-        private void OutputLine(int Port)
+        private void OutputLine(int Port, string Name = "")
         {
-            Console.Write("\n" + GetIPAddress() + ":" + Port + " -> ");
+            if (Name != "")
+                Console.Write("\n["+ Name +"] " + GetIPAddress() + ":" + Port + " -> ");
+            else
+                Console.Write("\n" + GetIPAddress() + ":" + Port + " -> ");
 
             if (!IsPortAvailable(Port))
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -73,7 +76,7 @@ namespace PortScanner
                 {
                     foreach (DefaultPort? Port in DefaultPorts)
                     {
-                        OutputLine(Port.Port);
+                        OutputLine(Port.Port, Port.Name);
                     }
                 }
                 else
